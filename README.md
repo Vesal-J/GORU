@@ -10,9 +10,9 @@ GORU comes with following tools
 
 ## Installation
 ```console
-    $ git clone https://github.com/Vesal-J/lynx-boilerplate.git
-    $ cd lynx-boilerplate
-    $ npm install
+$ git clone https://github.com/Vesal-J/lynx-boilerplate.git
+$ cd lynx-boilerplate
+$ npm install
 ```
 
 ### Run dev server
