@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 
+	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
-var dsn string = "root@tcp(127.0.0.1:3306)/gin?charset=utf8mb4&parseTime=True&loc=Local"
-var db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+var envData, _ = godotenv.Read(".env")
+var db, err = gorm.Open(mysql.Open(envData["DATABASE_URL"]), &gorm.Config{})
 
 func connect_to_db() {
 	if err != nil {
