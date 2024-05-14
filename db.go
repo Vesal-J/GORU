@@ -14,6 +14,5 @@ var db, err = gorm.Open(mysql.Open(envData["DATABASE_URL"]), &gorm.Config{})
 func connect_to_db() {
 	if err != nil {
 		fmt.Println("Couldn't connect to database!")
-		fmt.Println()
 	}
 }
