@@ -7,12 +7,13 @@ GORU comes with following tools
 - Gorm
 - Air
 - Project structure
+- JWT Authentication
 
 ## Installation
 ```console
-$ git clone https://github.com/Vesal-J/lynx-boilerplate.git
-$ cd lynx-boilerplate
-$ npm install
+$ git clone https://github.com/Vesal-J/GORU.git
+$ cd GORU
+$ air
 ```
 
 ### Run dev server

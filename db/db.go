@@ -1,4 +1,4 @@
-package main
+package database
 
 import (
 	"fmt"
@@ -9,9 +9,9 @@ import (
 )
 
 var envData, _ = godotenv.Read(".env")
-var db, err = gorm.Open(mysql.Open(envData["DATABASE_URL"]), &gorm.Config{})
+var Db, err = gorm.Open(mysql.Open(envData["DATABASE_URL"]), &gorm.Config{})
 
-func connect_to_db() {
+func Connect_to_db() {
 	if err != nil {
 		fmt.Println("Couldn't connect to database!")
 	}
