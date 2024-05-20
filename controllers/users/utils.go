@@ -16,7 +16,7 @@ var secretKey []byte = []byte(env["JWT_SECRET_KEY"])
 func createToken(user *models.User, expiration int32) interface{} {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"id":       user.ID,
-		"username": user.UserName,
+		"username": user.Username,
 		"exp":      time.Now().Add(time.Hour * time.Duration(expiration)),
 	})
 

@@ -4,6 +4,10 @@ import "gorm.io/gorm"
 
 type User struct {
 	gorm.Model
-	UserName string
+	Username string
 	Password string
+}
+
+type APIUser struct {
+	Username string
 }

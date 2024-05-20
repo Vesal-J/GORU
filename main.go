@@ -12,8 +12,9 @@ func main() {
 	init_db()
 	router := gin.Default()
 
-	router.GET("/", greetController.Greet)
+	router.POST("/", greetController.Greet)
 	router.POST("/login", userController.Login)
+	router.POST("/register", userController.Register)
 
 	router.Run()
 }
