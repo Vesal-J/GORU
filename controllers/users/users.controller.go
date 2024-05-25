@@ -1,13 +1,12 @@
 package userController
 
 import (
+	"github.com/gin-gonic/gin"
+	database "goru/db"
 	"goru/models"
 	"goru/response/errors"
 	"goru/services/AuthService"
 	"net/http"
-
-	"github.com/gin-gonic/gin"
-	database "goru/db"
 )
 
 func Login(c *gin.Context) {
@@ -26,7 +25,10 @@ func Login(c *gin.Context) {
 		token := AuthService.CreateToken(&user, 24)
 
 		c.JSON(http.StatusOK, gin.H{
-			"user":  user,
+			"user": map[string]interface{}{
+				"id":       user.ID,
+				"username": user.Username,
+			},
 			"token": token,
 		})
 		return
