@@ -3,6 +3,7 @@ package userController
 import (
 	"goru/models"
 	"goru/response"
+	"goru/services/AuthService"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -18,7 +19,7 @@ func Login(c *gin.Context) {
 	database.Db.Where("username = ?", requestData["username"]).First(&user)
 
 	if user.Password == requestData["password"] {
-		token := createToken(&user, 24)
+		token := AuthService.CreateToken(&user, 24)
 
 		c.JSON(http.StatusOK, gin.H{
 			"user":  user,
