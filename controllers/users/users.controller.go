@@ -13,7 +13,11 @@ import (
 func Login(c *gin.Context) {
 	var requestData map[string]string
 
-	var _ = c.BindJSON(&requestData)
+	var err = c.BindJSON(&requestData)
+
+	if err != nil {
+		response.BadRequestResponse(c, "couldn't read your request payload")
+	}
 
 	var user models.User
 	database.Db.Where("username = ?", requestData["username"]).First(&user)
