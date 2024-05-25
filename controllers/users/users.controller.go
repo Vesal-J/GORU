@@ -2,7 +2,7 @@ package userController
 
 import (
 	"goru/models"
-	"goru/response"
+	"goru/response/errors"
 	"goru/services/AuthService"
 	"net/http"
 
@@ -16,7 +16,7 @@ func Login(c *gin.Context) {
 	var err = c.BindJSON(&requestData)
 
 	if err != nil {
-		response.BadRequestResponse(c, "couldn't read your request payload")
+		errors.BadRequestResponse(c, "couldn't read your request payload")
 	}
 
 	var user models.User
@@ -32,7 +32,7 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	response.UnauthorizedResponse(c)
+	errors.UnauthorizedResponse(c)
 }
 
 func Register(c *gin.Context) {

@@ -1,4 +1,4 @@
-package response
+package errors
 
 import (
 	"github.com/gin-gonic/gin"
