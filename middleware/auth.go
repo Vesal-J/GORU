@@ -17,10 +17,14 @@ func UserAuthMiddleware(c *gin.Context) {
 	}
 	token = strings.Split(token, "Bearer ")[1]
 
-	if _, err := AuthService.CheckToken(token); err != nil {
+	claims, err := AuthService.CheckToken(token)
+
+	if err != nil {
 		errors.UnauthorizedResponse(c)
 		c.Abort()
 		return
 	}
+
+	c.Set("userId", claims.Id)
 	c.Next()
 }
