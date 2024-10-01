@@ -1,7 +1,7 @@
 package main
 
 import (
-	"goru/db"
+	database "goru/db"
 	models "goru/models"
 )
 

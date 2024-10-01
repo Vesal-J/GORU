@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	"github.com/joho/godotenv"
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var envData, _ = godotenv.Read(".env")
-var Db, err = gorm.Open(mysql.Open(envData["DATABASE_URL"]), &gorm.Config{})
+var Db, err = gorm.Open(postgres.Open(envData["DATABASE_URL"]), &gorm.Config{})
 
 func Connect_to_db() {
 	if err != nil {
